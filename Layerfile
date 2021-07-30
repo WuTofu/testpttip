@@ -1,0 +1,14 @@
+#Use an Ubuntu 18.04 base for our staging server
+FROM vm/ubuntu:18.04
+
+# To note: Layerfiles create entire VMs, *not* containers!
+
+# Install python
+RUN apt-get update && apt-get install python3 && apt-get install python3-pip
+
+
+COPY . .
+RUN ls
+RUN pip3 install pyptt
+RUN python3 main.py
+
